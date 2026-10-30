@@ -1,0 +1,31 @@
+
+{
+  "instances": [
+    {
+      "instance_id": "i-demo-running",
+      "state": "running",
+      "tags": {
+        "Environment": "test"
+      }
+    },
+    {
+      "instance_id": "i-demo-stopped",
+      "state": "stopped",
+      "tags": {
+        "Owner": "cloud-team",
+        "Environment": "test",
+        "Project": "security-auditor"
+      }
+    }
+  ],
+  "volumes": [
+    {
+      "volume_id": "vol-demo-unattached",
+      "state": "available"
+    },
+    {
+      "volume_id": "vol-demo-in-use",
+      "state": "in-use"
+    }
+  ]
+}

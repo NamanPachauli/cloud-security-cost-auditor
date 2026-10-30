@@ -1,0 +1,12 @@
+
+{
+  "public_access_block": {
+    "BlockPublicAcls": false,
+    "IgnorePublicAcls": false,
+    "BlockPublicPolicy": false,
+    "RestrictPublicBuckets": false
+  },
+  "encryption": {
+    "enabled": false
+  }
+}

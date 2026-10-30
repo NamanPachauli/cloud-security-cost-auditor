@@ -1,0 +1,70 @@
+{
+  "project": "Cloud Security & Cost Audit Automation",
+  "generated_at": "2026-10-29T17:50:59.368065+00:00",
+  "scan_type": "LOCAL_SAMPLE_DATA",
+  "important_note": "Results reflect sample configurations only. They are not findings from a live AWS account.",
+  "summary": {
+    "high": 3,
+    "medium": 1,
+    "low": 1,
+    "review": 2,
+    "pass": 0,
+    "total_findings": 7
+  },
+  "findings": [
+    {
+      "service": "IAM",
+      "severity": "HIGH",
+      "check": "IAM_WILDCARD_ACCESS",
+      "statement": 1,
+      "message": "Allow statement grants wildcard actions on all resources.",
+      "recommendation": "Restrict actions and resources to the minimum permissions required."
+    },
+    {
+      "service": "IAM",
+      "severity": "MEDIUM",
+      "check": "IAM_WILDCARD_PERMISSION",
+      "statement": 2,
+      "message": "Allow statement contains a wildcard action or resource.",
+      "recommendation": "Review the wildcard and apply least privilege."
+    },
+    {
+      "service": "S3",
+      "severity": "HIGH",
+      "check": "S3_PUBLIC_ACCESS_BLOCK_DISABLED",
+      "message": "Public access protections are disabled or false: BlockPublicAcls, IgnorePublicAcls, BlockPublicPolicy, RestrictPublicBuckets",
+      "recommendation": "Enable all four protections unless a documented requirement justifies otherwise."
+    },
+    {
+      "service": "S3",
+      "severity": "HIGH",
+      "check": "S3_ENCRYPTION_NOT_CONFIRMED",
+      "message": "Default encryption is not confirmed as enabled.",
+      "recommendation": "Enable and verify S3 default encryption."
+    },
+    {
+      "service": "COST_RISK",
+      "severity": "REVIEW",
+      "check": "EC2_RUNNING_INSTANCE",
+      "resource": "i-demo-running",
+      "message": "Instance is running and may incur compute charges.",
+      "recommendation": "Confirm that the instance is needed. Stop or terminate it only after checking dependencies."
+    },
+    {
+      "service": "COST_RISK",
+      "severity": "LOW",
+      "check": "RESOURCE_TAGS_MISSING",
+      "resource": "i-demo-running",
+      "message": "Missing recommended tags: Owner, Project",
+      "recommendation": "Add ownership, environment and project tags to improve cost allocation."
+    },
+    {
+      "service": "COST_RISK",
+      "severity": "REVIEW",
+      "check": "EBS_UNATTACHED_VOLUME",
+      "resource": "vol-demo-unattached",
+      "message": "Volume is unattached and may still incur storage charges.",
+      "recommendation": "Verify whether the volume is needed before deleting it."
+    }
+  ]
+}
